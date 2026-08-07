@@ -1,0 +1,412 @@
+/* ============================================
+   Estilos para Formulario de Registro
+   ============================================ */
+
+/* --- Reset: elimina márgenes y paddings por defecto del navegador --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;  /* padding y borde se incluyen dentro del ancho/alto */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Estilos base del body --- */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* degradado diagonal violeta */
+    min-height: 100vh;          /* ocupa al menos toda la altura de la pantalla */
+    display: flex;              /* usa flexbox para centrar */
+    justify-content: center;    /* centra horizontalmente */
+    align-items: center;        /* centra verticalmente */
+    padding: 2rem;              /* espacio alrededor (32px) */
+    line-height: 1.6;           /* altura de línea para legibilidad */
+    color: #1e293b;             /* color de texto oscuro */
+}
+
+/* --- Contenedor principal (la tarjeta blanca) --- */
+body > div {
+    background: #ffffff;                 /* fondo blanco */
+    border-radius: 20px;                 /* esquinas redondeadas */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15),
+                0 8px 10px -6px rgba(0, 0, 0, 0.1); /* sombra grande */
+    padding: 2.5rem;                     /* espacio interno (40px) */
+    width: 100%;                         /* ocupa todo el ancho disponible */
+    max-width: 650px;                    /* pero no más de 650px */
+}
+
+/* --- Encabezado principal --- */
+h1 {
+    font-size: 2rem;          /* 32px */
+    font-weight: 700;         /* negrita */
+    color: #4f46e5;           /* color violeta primario */
+    margin-bottom: 0.25rem;   /* pequeño espacio debajo */
+    text-align: center;       /* centrado */
+}
+
+/* Párrafo justo después del h1 */
+h1 + p {
+    text-align: center;
+    color: #64748b;           /* gris medio */
+    margin-bottom: 2rem;      /* espacio antes del formulario */
+    font-size: 0.95rem;
+}
+
+/* --- Formulario --- */
+form {
+    display: flex;
+    flex-direction: column;   /* apila los elementos verticalmente */
+    gap: 1.5rem;              /* espacio entre cada hijo (24px) */
+}
+
+/* --- Fieldsets (agrupaciones con borde) --- */
+fieldset {
+    border: 2px solid #e2e8f0;          /* borde gris claro */
+    border-radius: 10px;                  /* esquinas redondeadas */
+    padding: 1.5rem;                      /* espacio interno */
+}
+
+/* Al pasar el mouse por encima del fieldset */
+fieldset:hover {
+    border-color: #cbd5e1;   /* borde un poco más oscuro */
+}
+
+/* Título dentro de cada fieldset */
+legend {
+    font-weight: 700;         /* negrita */
+    font-size: 1.1rem;        /* 17.6px */
+    color: #4f46e5;           /* violeta */
+    padding: 0 0.75rem;       /* espacio horizontal */
+    display: flex;
+    align-items: center;      /* centra verticalmente el contenido */
+    gap: 0.5rem;              /* espacio entre el ícono y el texto */
+}
+
+/* Círculo decorativo antes del texto del legend */
+legend::before {
+    content: '';              /* necesario para pseudo-elementos */
+    display: inline-block;    /* se comporta como un elemento en línea */
+    width: 10px;
+    height: 10px;
+    background: #4f46e5;      /* círculo violeta */
+    border-radius: 50%;       /* forma circular */
+}
+
+/* --- Grupos de campos: cada div dentro del fieldset --- */
+fieldset > div {
+    margin-bottom: 1.2rem;    /* separa cada campo */
+}
+
+/* Último div del fieldset sin margen inferior */
+fieldset > div:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Labels (etiquetas de cada campo) --- */
+label {
+    display: block;           /* ocupa toda la línea */
+    font-weight: 600;         /* semi-negrita */
+    font-size: 0.9rem;        /* 14.4px */
+    color: #1e293b;           /* texto oscuro */
+    margin-bottom: 0.35rem;   /* espacio antes del input */
+    cursor: pointer;          /* el cursor cambia a mano */
+}
+
+/* --- Campos de texto, email, teléfono, fecha, contraseña, select y textarea --- */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;                       /* ocupa todo el ancho del contenedor */
+    padding: 0.7rem 1rem;              /* relleno vertical | horizontal */
+    border: 2px solid #cbd5e1;         /* borde gris */
+    border-radius: 8px;                /* esquinas redondeadas */
+    font-size: 0.95rem;
+    font-family: inherit;              /* usa la misma fuente del body */
+    color: #1e293b;
+    background: #f1f5f9;               /* fondo gris muy claro */
+    outline: none;                     /* quita el contorno azul del navegador */
+}
+
+/* Efecto al hacer clic en el campo (focus) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #4f46e5;                        /* borde violeta */
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); /* halo violeta suave */
+    background: #ffffff;                            /* fondo blanco */
+}
+
+/* Placeholder de inputs y textareas */
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;      /* gris azulado */
+    font-style: italic;  /* cursiva */
+}
+
+/* --- Select personalizado (oculta la flecha nativa y pone una propia) --- */
+select {
+    appearance: none;    /* quita el estilo nativo del sistema operativo */
+    /* Imagen SVG como flecha personalizada a la derecha */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;  /* flecha a la derecha, centrada verticalmente */
+    padding-right: 2.5rem;                   /* espacio para que el texto no tape la flecha */
+    cursor: pointer;
+}
+
+/* --- Radio buttons y Checkboxes personalizados --- */
+input[type="radio"],
+input[type="checkbox"] {
+    appearance: none;              /* quita el estilo nativo */
+    -webkit-appearance: none;      /* lo mismo para Safari/Chrome */
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;     /* borde gris */
+    margin-right: 0.4rem;          /* espacio entre el botón y el texto */
+    vertical-align: middle;        /* alinea con el texto */
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;                /* no se encoge en flex */
+}
+
+/* Radio: forma circular */
+input[type="radio"] {
+    border-radius: 50%;            /* completamente redondo */
+}
+
+/* Checkbox: esquinas ligeramente redondeadas */
+input[type="checkbox"] {
+    border-radius: 4px;
+}
+
+/* Radio seleccionado: círculo violeta con punto blanco interior */
+input[type="radio"]:checked {
+    border-color: #4f46e5;
+    background: #4f46e5;
+    box-shadow: inset 0 0 0 4px #ffffff;  /* simula un punto blanco */
+}
+
+/* Checkbox seleccionado: fondo violeta con tilde blanca (SVG) */
+input[type="checkbox"]:checked {
+    border-color: #4f46e5;
+    background: #4f46e5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Efecto hover en radio y checkbox */
+input[type="radio"]:hover,
+input[type="checkbox"]:hover {
+    border-color: #4f46e5;   /* borde violeta al pasar el mouse */
+}
+
+/* Accesibilidad: anillo visible al navegar con teclado */
+input[type="radio"]:focus-visible,
+input[type="checkbox"]:focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;         /* separa el anillo del elemento */
+}
+
+/* --- Contenedor flexible para radio buttons y checkboxes en línea --- */
+fieldset > div > div {
+    display: flex;
+    flex-wrap: wrap;              /* si no caben, pasan a la siguiente línea */
+    gap: 0.8rem 1.5rem;           /* espacio entre filas | espacio entre columnas */
+    margin-top: 0.3rem;
+}
+
+/* Cada etiqueta dentro del contenedor de opciones */
+fieldset > div > div label {
+    display: inline-flex;         /* flexible en línea */
+    align-items: center;          /* centra verticalmente */
+    font-weight: 400;             /* peso normal (no negrita) */
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    cursor: pointer;
+    padding: 0.4rem 0.75rem;      /* relleno tipo "pastilla" */
+    border-radius: 20px;          /* completamente redondeado (forma de píldora) */
+    background: #f1f5f9;          /* fondo gris claro */
+    border: 1px solid transparent; /* borde invisible para que no salte al seleccionar */
+}
+
+/* Etiqueta que contiene un input seleccionado: se resalta */
+fieldset > div > div label:has(input:checked) {
+    background: #eef2ff;           /* fondo violeta muy claro */
+    border-color: #4f46e5;         /* borde violeta */
+    color: #4f46e5;                /* texto violeta */
+    font-weight: 500;              /* semi-negrita */
+}
+
+/* --- Textarea --- */
+textarea {
+    resize: vertical;     /* solo se puede redimensionar verticalmente */
+    min-height: 80px;     /* altura mínima */
+}
+
+/* --- Sección de términos y condiciones --- */
+form > div:has(input[name="terminos"]) {
+    display: flex;
+    align-items: flex-start;   /* alinea arriba el checkbox con el texto */
+    padding: 0.5rem 0;
+}
+
+form > div:has(input[name="terminos"]) label {
+    display: inline-flex;
+    align-items: flex-start;
+    font-weight: 400;          /* texto normal */
+    font-size: 0.9rem;
+}
+
+/* Enlace de términos y condiciones */
+form > div:has(input[name="terminos"]) a {
+    color: #4f46e5;            /* violeta */
+    text-decoration: underline; /* subrayado */
+    font-weight: 600;
+}
+
+form > div:has(input[name="terminos"]) a:hover {
+    color: #4338ca;            /* violeta más oscuro al pasar el mouse */
+    text-decoration: none;     /* se quita el subrayado */
+}
+
+/* --- Botones (contenedor) --- */
+form > div:last-child {
+    display: flex;
+    gap: 1rem;                 /* espacio entre botones */
+    justify-content: center;   /* centra los botones */
+    flex-wrap: wrap;           /* si no caben, se apilan */
+}
+
+/* Estilos base para ambos botones */
+button {
+    font-family: inherit;          /* hereda la fuente del body */
+    font-size: 1rem;               /* 16px */
+    font-weight: 600;              /* semi-negrita */
+    padding: 0.75rem 2rem;         /* relleno vertical | horizontal */
+    border: none;
+    border-radius: 10px;           /* esquinas redondeadas */
+    cursor: pointer;               /* mano al pasar el mouse */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Botón de envío (Registrarse) */
+button[type="submit"] {
+    background: #4f46e5;           /* fondo violeta */
+    color: white;                  /* texto blanco */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -2px rgba(0, 0, 0, 0.1); /* sombra suave */
+    flex: 1;                       /* se estira para ocupar espacio */
+    max-width: 250px;              /* pero máximo 250px */
+}
+
+/* Hover del botón submit */
+button[type="submit"]:hover {
+    background: #4338ca;                              /* violeta más oscuro */
+    transform: translateY(-2px);                       /* se eleva 2px */
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);  /* sombra más intensa */
+}
+
+/* Click del botón submit */
+button[type="submit"]:active {
+    transform: translateY(0);                          /* vuelve a su posición */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de reset (Limpiar formulario) */
+button[type="reset"] {
+    background: transparent;       /* sin fondo */
+    color: #64748b;                /* texto gris */
+    border: 2px solid #cbd5e1;     /* borde gris */
+    flex: 1;
+    max-width: 250px;
+}
+
+/* Hover del botón reset */
+button[type="reset"]:hover {
+    background: #f8fafc;           /* fondo gris muy claro */
+    border-color: #94a3b8;         /* borde más oscuro */
+    color: #1e293b;                /* texto oscuro */
+    transform: translateY(-2px);   /* se eleva 2px */
+}
+
+/* Click del botón reset */
+button[type="reset"]:active {
+    transform: translateY(0);      /* vuelve a su posición */
+}
+
+/* --- Validación visual: borde verde si el campo es válido --- */
+input:valid:not(:placeholder-shown):not([type="radio"]):not([type="checkbox"]) {
+    border-color: #22c55e;         /* verde éxito */
+}
+
+/* Validación visual: borde rojo si el campo es inválido */
+input:invalid:not(:placeholder-shown):not(:focus):not([type="radio"]):not([type="checkbox"]) {
+    border-color: #ef4444;         /* rojo error */
+}
+
+/* --- Asterisco rojo en campos requeridos --- */
+label:has(+ input[required])::after,
+label:has(+ select[required])::after {
+    content: ' *';        /* añade " *" después del texto del label */
+    color: #ef4444;       /* rojo */
+    font-weight: 700;     /* negrita */
+}
+
+/* =============================================
+   RESPONSIVE: ajustes para pantallas pequeñas
+   (celulares, tablets)
+   ============================================= */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;             /* menos margen en móviles */
+    }
+
+    body > div {
+        padding: 1.5rem;           /* tarjeta más compacta */
+        border-radius: 16px;       /* esquinas menos redondeadas */
+    }
+
+    h1 {
+        font-size: 1.5rem;         /* título más pequeño (24px) */
+    }
+
+    fieldset {
+        padding: 1rem;             /* fieldset más compacto */
+    }
+
+    /* Radio buttons y checkboxes: apilados en columna */
+    fieldset > div > div {
+        flex-direction: column;    /* uno debajo del otro */
+        gap: 0.5rem;
+    }
+
+    /* Botones: apilados en columna */
+    form > div:last-child {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        max-width: 100% !important; /* botones ocupan todo el ancho */
+        width: 100%;
+    }
+}
+
+/* --- Accesibilidad: anillo visible al navegar con teclado (Tab) --- */
+:focus-visible {
+    outline: 2px solid #4f46e5;   /* anillo violeta */
+    outline-offset: 2px;          /* separado 2px del elemento */
+}
